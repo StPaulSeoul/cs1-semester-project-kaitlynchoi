@@ -135,9 +135,14 @@ public class Customer extends Person{
 		}
 		if(flavors.contains(this.favoriteFlavor) == true && this.pickiness <= 2){
 			System.out.println("I liked it.");
-			
 		}
+		System.out.println("Perfect! Can't beat this.");
+		this.leave();
 	}
+	public void leave() {
+		System.out.println("~ Customer leaves ~");
+	}
+
 	public static void main(String[] args){
 		ArrayList<Customer> myCustomer = new ArrayList<>();
 		ArrayList<Employee> myEmployee = new ArrayList<>();
