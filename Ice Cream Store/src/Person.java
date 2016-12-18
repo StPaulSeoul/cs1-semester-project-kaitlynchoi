@@ -7,7 +7,9 @@ public class Person extends IceCream{
 	
 	String name;
 	boolean gender;
+	int adventurousness;
 	int numFlavor;
+	int numTopping;
 	String cupsize;
 	int niceness;
 	int pickiness;
@@ -3281,7 +3283,7 @@ public class Person extends IceCream{
 			"Zulekha",
 			"Zuri",
 			"Zuwena"};
-	public Person(String name){
+	public Person(){
 		this.gender = rand.nextBoolean();
 		if (this.gender == true){
 			this.name = maleNames[rand.nextInt(maleNames.length)];
@@ -3290,7 +3292,9 @@ public class Person extends IceCream{
 			this.name = femaleNames[rand.nextInt(femaleNames.length)];
 		}
 		this.name = name;
+		this.adventurousness = normal(stdDev, mean);
 		this.numFlavor = normal(stdDev, mean);
+		this.numTopping = normal(stdDev, mean);
 		this.cupsize = icecreamSize(numFlavor);
 		this.niceness = normal(stdDev, mean);
 		this.pickiness = normal(stdDev, mean);

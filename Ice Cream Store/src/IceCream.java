@@ -1,31 +1,33 @@
 
 public class IceCream{
-	String flavor[] = {"chocolate", 
-	"vanilla", 
-	"green Tea", 
-	"rizzo", 
+	public static String flavor[] = {"rizzo",
+	"salted caramel",
+	"red bean",
+	"tapioca",
+	"shooting star",
 	"strawberry", 
 	"mint", 
 	"mint chocolate", 
 	"milk", 
-	"shooting star", 
-	"cotton candy", 
 	"cherry jubilee", 
-	"caramel", 
-	"red bean",
+	"coffee",
 	"pineapple",
 	"earl grey",
-	"salted caramel"
+	"vanilla",
+	"chocolate",
+	"green tea",
+	"cotton candy"
 	};
-	String topping[] = {"with M&Ms",
-	"with oreos",
-	"with almonds",
-	"with popcorns",
-	"with cotton candy",
-	"with sprinkles",
-	"with jelly beans",
-	"with chocolate syrup",
-	"without anything"};
+	
+	String topping[] = {"M&Ms",
+	"oreos",
+	"almonds",
+	"popcorns",
+	"cotton candy",
+	"sprinkles",
+	"jelly beans",
+	"chocolate syrup",
+	"jelly worms"};
 	
 	public static String icecreamSize(int numFlavor){
 		String size;
@@ -46,23 +48,28 @@ public class IceCream{
 		}
 		return size;
 	}
-	public static int price(int numFlavor){
-		int price;
+	public static int price(int numFlavor, int numTopping){
+		int icecreamPrice;
+		int toppingPrice;
+		//Price of ice cream
 		if (numFlavor == 1){
-			price = 3500;
+			icecreamPrice = 3500;
 		}
 		else if (numFlavor == 2){
-			price = 5500;
+			icecreamPrice = 5500;
 		}
 		else if (numFlavor == 3){
-			price = 8000;
+			icecreamPrice = 8000;
 		}
 		else if (numFlavor == 4){
-			price = 12000;
+			icecreamPrice = 12000;
 		}
 		else {
-			price = 3500;
+			icecreamPrice = 3500;
 		}
+		//Price of toppings
+		toppingPrice = (numTopping - 1) * 1000;
+		int price = icecreamPrice + toppingPrice;
 		return price;
 	}
 	

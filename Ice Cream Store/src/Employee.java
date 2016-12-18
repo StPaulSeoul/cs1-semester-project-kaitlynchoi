@@ -1,8 +1,8 @@
 
 public class Employee extends Person{
 	Customer customer;
-	public Employee(String name) {
-		super (name);
+	public Employee() {
+		super ();
 	}
 	
 	public void greets(){
@@ -38,6 +38,11 @@ public class Employee extends Person{
 		this.getFlavor(numFlavor);
 	}
 	public void getFlavor(int numFlavor){
+		try{
+			Thread.sleep(2000);
+		}catch(InterruptedException ex){
+			Thread.currentThread().interrupt();
+		}
 		if (numFlavor == 1 && this.niceness >= 2){
 			System.out.println(this.name + ": What flavor would you like?");
 		}
@@ -48,24 +53,97 @@ public class Employee extends Person{
 			System.out.println(this.name + ": What flavors would you like?");
 		}
 		else {
-			System.out.println(this.name + ": hoose whatever flavors you want.");
+			System.out.println(this.name + ": Choose whatever flavors you want.");
 		}
 		this.customer.chooseFlavor(numFlavor);
 	}
-	public void askTopping(String[] flavor, int numFlavor){
-		System.out.println(this.name + ": What topping do you want on your ice cream?");
-		this.customer.chooseTopping(flavor, numFlavor);
-	}
-
-	public void scoop(String[] flavor, String[] topping, int numFlavor) {
-		for (int i = 0; i > flavor.length; i++){
-		System.out.println("'Scoop scoop'");
+	public void askTopping(String [] flavors, int numFlavor){
+		try{
+			Thread.sleep(2000);
+		}catch(InterruptedException ex){
+			Thread.currentThread().interrupt();
 		}
-		this.passIcecream(flavor, topping, numFlavor);
+		System.out.println(this.name + ": Which toppings do you want on your ice cream?");
+		this.customer.chooseTopping(flavors, numFlavor);
 	}
 
-	public void passIcecream(String[] flavor, String[] topping, int numFlavor) {
-		System.out.println(this.name + ": Here is your " + icecreamSize(numFlavor) + " ice cream, with " + flavor + " in it and " + topping + " on the top!");
-		System.out.println(this.name + ": ");
+	public void scoop(String [] flavors, String toppings[], int numFlavor, int numTopping) {
+		try{
+			Thread.sleep(2000);
+		}catch(InterruptedException ex){
+			Thread.currentThread().interrupt();
+		}
+		for (int i = 0; i < numFlavor; i++){
+			try{
+				Thread.sleep(2500);
+			}catch(InterruptedException ex){
+				Thread.currentThread().interrupt();
+			}
+			System.out.println("'Scoop scoop'");
+		}
+		this.passIcecream(flavors, toppings, numFlavor, numTopping);
+	}
+
+	public void passIcecream(String[] flavors, String[] toppings, int numFlavor, int numTopping) {
+		try{
+			Thread.sleep(2000);
+		}catch(InterruptedException ex){
+			Thread.currentThread().interrupt();
+		}
+		if (numFlavor == 2){
+			System.out.print(this.name + ": Here is your " + flavors[0] + " and " + flavors[1] + " " + icecreamSize(numFlavor) + " size ice cream with ");
+			if (numTopping == 2){
+				System.out.println(toppings[0] + " and " + toppings[1] + " on it.");
+			}
+			else if (numTopping == 3){
+				System.out.println(toppings[0] + ", " + toppings[1] + ", and " + toppings[2] + " on it.");
+			}
+			else {
+				System.out.println(toppings[0] + " on it.");
+			}
+		}
+		else if (numFlavor == 3){
+			System.out.print(this.name + ": Here is your " + flavors[0] + ", " + flavors[1] + ", and " + flavors[2] + " " + icecreamSize(numFlavor) + " size ice cream with ");
+			if (numTopping == 2){
+				System.out.println(toppings[0] + " and " + toppings[1] + " on it.");
+			}
+			else if (numTopping == 3){
+				System.out.println(toppings[0] + ", " + toppings[1] + ", and " + toppings[2] + " on it.");
+			}
+			else {
+				System.out.println(toppings[0] + " on it.");
+			}
+		}
+		else if (numFlavor == 4){
+			System.out.print(this.name + ": Here is your " + flavors[0] + ", " + flavors[1] + ", " + flavors[2] + ", and " + flavors[3] + " " + icecreamSize(numFlavor) + " ice cream, with ");
+			if (numTopping == 2){
+				System.out.println(toppings[0] + " and " + toppings[1] + " on it.");
+			}
+			else if (numTopping == 3){
+				System.out.println(toppings[0] + ", " + toppings[1] + ", and " + toppings[2] + " on it.");
+			}
+			else {
+				System.out.println(toppings[0] + " on it.");
+			}
+		}
+		else {
+			System.out.print(this.name + ": Here is your " + flavors[0] + " " + icecreamSize(numFlavor) + " size ice cream with ");
+			if (numTopping == 2){
+				System.out.println(toppings[0] + " and " + toppings[1] + " on it.");
+			}
+			else if (numTopping == 3){
+				System.out.println(toppings[0] + ", " + toppings[1] + ", and " + toppings[2] + " on it.");
+			}
+			else {
+				System.out.println(toppings[0] + " on it.");
+			}
+		}
+		try{
+			Thread.sleep(2500);
+		}catch(InterruptedException ex){
+			Thread.currentThread().interrupt();
+		}
+		System.out.println(this.name + ": It's worth " + price(numFlavor, numTopping) + " won!");
+	this.customer.thank(flavors, toppings);
 	}
 }
