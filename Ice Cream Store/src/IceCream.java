@@ -1,5 +1,6 @@
 
 public class IceCream{
+	//Ice creams have two characteristics- flavors and toppings.
 	public static String flavor[] = {"rizzo",
 	"salted caramel",
 	"red bean",
@@ -18,7 +19,7 @@ public class IceCream{
 	"green tea",
 	"cotton candy"
 	};
-	
+	public int remaining;
 	String topping[] = {"M&Ms",
 	"oreos",
 	"almonds",
@@ -51,7 +52,7 @@ public class IceCream{
 	public static int price(int numFlavor, int numTopping){
 		int icecreamPrice;
 		int toppingPrice;
-		//Price of ice cream
+		//Price of ice cream depends on the size and number of toppings.
 		if (numFlavor == 1){
 			icecreamPrice = 3500;
 		}
@@ -72,5 +73,4 @@ public class IceCream{
 		int price = icecreamPrice + toppingPrice;
 		return price;
 	}
-	
 }

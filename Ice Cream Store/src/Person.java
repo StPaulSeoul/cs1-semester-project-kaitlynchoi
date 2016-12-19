@@ -2,9 +2,11 @@ import java.util.Random;
 public class Person extends IceCream{
 	static Random rand = new Random();
 	
+	//Statistical elements that set up a normal distribution for traits
 	static double stdDev = 1;
 	static double mean = 2;
 	
+	//Traits of a person
 	String name;
 	boolean gender;
 	int adventurousness;
@@ -15,7 +17,9 @@ public class Person extends IceCream{
 	int pickiness;
 	String favoriteFlavor;
 	String favoriteTopping;
+	int time = 3;
 	
+	//List of names
 	static String maleNames[] = {"Aaron",
 			"Abasi",
 			"Abdalla",
@@ -3292,6 +3296,8 @@ public class Person extends IceCream{
 			this.name = femaleNames[rand.nextInt(femaleNames.length)];
 		}
 		this.name = name;
+		
+		//Some traits with randomly assigned values
 		this.adventurousness = normal(stdDev, mean);
 		this.numFlavor = normal(stdDev, mean);
 		this.numTopping = normal(stdDev, mean);
@@ -3301,6 +3307,8 @@ public class Person extends IceCream{
 		this.favoriteFlavor = flavor[rand.nextInt(flavor.length)];
 		this.favoriteTopping = topping[rand.nextInt(topping.length)];
 	}
+	
+	//Method that sets up the normal distribution
 	public static int normal(double stdDev, double mean){
 		int need = (int)Math.round(rand.nextGaussian() * stdDev + mean);
 		return need;
