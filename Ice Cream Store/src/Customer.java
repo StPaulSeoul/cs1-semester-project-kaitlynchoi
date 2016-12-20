@@ -7,7 +7,6 @@ public class Customer extends Person{
 		super();
 	}
 	public void enter() {
-		this.employee.store.warn(time);
 		System.out.println("~ Customer enters ~");
 		this.employee.greets();
 	}
@@ -158,6 +157,10 @@ public class Customer extends Person{
 			System.out.println(this.name + ": 'It was good, I guess.'");
 			this.employee.store.reputation += 1;
 		}
+
+		this.employee.store.warn(time);
+		this.employee.store.budget(flavor, flavors, servings, topping, toppings, toppingServings);
+		this.employee.store.checkBudget(this.employee.store.budget, flavors, flavors, servings, toppings, toppings, toppingServings);
 	}
 	public void leave() {
 		try{

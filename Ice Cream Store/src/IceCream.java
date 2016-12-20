@@ -16,6 +16,8 @@ public class IceCream{
 	"chocolate syrup",
 	"jelly worms"};
 	
+	public int toppingServings[] = {5, 5, 5, 5, 5, 5, 5, 5, 5};
+	
 	public static String icecreamSize(int numFlavor){
 		String size;
 		if (numFlavor == 1){
@@ -35,7 +37,7 @@ public class IceCream{
 		}
 		return size;
 	}
-	public static int price(int numFlavor, int numTopping){
+	public int price(int numFlavor, int numTopping){
 		int icecreamPrice;
 		int toppingPrice;
 		//Price of ice cream depends on the size and number of toppings.

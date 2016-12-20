@@ -2,9 +2,10 @@ import java.util.Arrays;
 
 public class Store {
 	
-	int reputation = 100;
+	int reputation = 1;
 	int budget = 1000000;
-
+	Employee employee;
+	
 	public void warn(int time){
 		if(reputation <= 0){
 			try{
@@ -25,23 +26,31 @@ public class Store {
 			time = 6;
 		}
 	}
-	public void budget(String[] flavor, String[] flavors, int[] servings, int price){
+	public void budget(String[] flavor, String[] flavors, int[] servings, String[] topping, String[] toppings, int[] toppingServings){
 		for (int i = 0; i < flavor.length; i++){
-			if (Arrays.asList(flavors).contains(flavor[i])){
+			if(Arrays.asList(flavors).contains(flavor[i])){
 				servings[i] = servings[i] - 1;
-				budget = budget + price;
+				System.out.println("~The employee refilled the ice creams.~");
+			}
+			if(Arrays.asList(toppings).contains(topping[i])){
+				toppingServings[i] = toppingServings[i] - 1;
+				System.out.println("~The employee refilled the toppings.~");
 			}
 		}
+	}
+	public void checkBudget(int budget, String[] flavor, String[] flavors, int[] servings, String[] topping, String[] toppings, int[] toppingServings){
 		for (int i = 0; i < flavor.length; i++){
-			while (servings[i] == 0){
-				budget = budget - 10000;
+			if (servings[i] == 0){
+				budget = budget - 100000;
 				servings[i] = 10;
+				}
+			if (toppingServings[i] == 0){
+				budget = budget - 50000;
+				toppingServings[i] = 5;
 			}
 		}
 		if (budget <= 0){
-			System.out.println("The store is out of money!");
-			
+			System.out.println("The store is out of money and went bankrupt...");
 		}
 	}
-	Employee[] employees;
 }
