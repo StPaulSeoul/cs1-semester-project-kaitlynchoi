@@ -1,26 +1,12 @@
 
 public class IceCream{
 	//Ice creams have two characteristics- flavors and toppings.
-	public static String flavor[] = {"rizzo",
-	"salted caramel",
-	"red bean",
-	"tapioca",
-	"shooting star",
-	"strawberry", 
-	"mint", 
-	"mint chocolate", 
-	"milk", 
-	"cherry jubilee", 
-	"coffee",
-	"pineapple",
-	"earl grey",
-	"vanilla",
-	"chocolate",
-	"green tea",
-	"cotton candy"
-	};
-	public int remaining;
-	String topping[] = {"M&Ms",
+	public static String flavor[] = {"rizzo", "salted caramel", "red bean", "tapioca", "shooting star", "strawberry", "mint", "mint chocolate",	"milk", 
+									"cherry jubilee","coffee", "pineapple", "earl grey", "vanilla", "chocolate", "green tea", "cotton candy"};
+	public int servings[] = 		{10, 	  10, 				10, 		10, 		10,				10,			  10,	  10,				 10,
+									 10,			 10,	   10,			10,			 10,		10,			 10,		  10};
+	public static String topping[] = {
+	"M&Ms",
 	"oreos",
 	"almonds",
 	"popcorns",

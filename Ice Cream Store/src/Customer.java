@@ -6,10 +6,8 @@ public class Customer extends Person{
 	public Customer() {
 		super();
 	}
-	
 	public void enter() {
 		this.employee.store.warn(time);
-		
 		System.out.println("~ Customer enters ~");
 		this.employee.greets();
 	}
@@ -185,7 +183,7 @@ public class Customer extends Person{
 			myCustomer.add(new Customer());
 		}
 		myEmployee.add(new Employee());
-		while(myCustomer.size() > 0 && myStore.reputation > 0){
+		while(myCustomer.size() > 0 && myStore.reputation > 0 && myStore.budget > 0){
 			myCustomer.get(0).employee = myEmployee.get(0);
 			myEmployee.get(0).customer = myCustomer.get(0);
 			myEmployee.get(0).store = myStore;
